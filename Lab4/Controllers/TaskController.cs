@@ -14,15 +14,15 @@ public class TaskController : ControllerBase
 
     public TaskController()
     {
-        // При запуске контроллера загружаем задачи из файла по умолчанию (JSON)
-        tasks = dataRepository.LoadTasks("tasks.json");
+        
+        tasks = dataRepository.LoadTasks("\"D:\\nah\\Ltasks.json\"");
     }
 
     [HttpPost]
     public IActionResult AddTask([FromBody] TaskModel task)
     {
         tasks.Add(task);
-        dataRepository.SaveTasks(tasks, "tasks.json");
+        dataRepository.SaveTasks(tasks, "\"D:\\nah\\Ltasks.json\"");
         return Ok();
     }
 
